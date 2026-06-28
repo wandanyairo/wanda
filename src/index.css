@@ -1,0 +1,45 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background-color: #fdf6ee;
+  color: #2c1a0e;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.app-header {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-bottom: 2px solid #8b2e2e;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  color: #8b2e2e;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #5a3e28;
+  font-style: italic;
+}
+
+.app-main {
+  text-align: center;
+  color: #5a3e28;
+  font-size: 1rem;
+  padding: 2rem 0;
+}
