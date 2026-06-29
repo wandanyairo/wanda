@@ -6,8 +6,8 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background-color: #FBF6EE;
-  color: #2c1a0e;
+  background-color: #FBF2F5;
+  color: #2e1b22;
   min-height: 100vh;
 }
 
@@ -55,7 +55,7 @@ body {
 .welcome-header h1 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #2c1a0e;
+  color: #2e1b22;
   line-height: 1.4;
 }
 
@@ -89,13 +89,13 @@ body {
 .outro-text p {
   font-size: 1.05rem;
   line-height: 1.65;
-  color: #4a3728;
+  color: #4a3038;
 }
 
 .outro-submitted {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #e13d58;
+  color: #d95c88;
   line-height: 1.2;
 }
 
@@ -104,7 +104,7 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   font-style: italic;
-  color: #2c1a0e;
+  color: #2e1b22;
   line-height: 1.35;
 }
 
@@ -121,22 +121,22 @@ body {
   gap: 0.6rem;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: #3d2b1f;
+  color: #3d2830;
 }
 
 .outro-list li::before {
   content: '•';
-  color: #e13d58;
+  color: #d95c88;
   flex-shrink: 0;
 }
 
 .outro-promo {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #4a3728;
+  color: #4a3038;
   padding: 1rem 1.25rem;
   background: #fce8ec;
-  border-left: 3px solid #e13d58;
+  border-left: 3px solid #d95c88;
   border-radius: 4px;
   text-align: left;
 }
@@ -144,18 +144,18 @@ body {
 .outro-sign-off {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #8b2e2e;
+  color: #7a2050;
   text-align: center;
 }
 
 .outro-link {
-  color: #e13d58;
+  color: #d95c88;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .outro-link:hover {
-  color: #c9334d;
+  color: #c24e78;
 }
 
 /* ── Intro Screen ── */
@@ -174,14 +174,14 @@ body {
 .intro-header h1 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #2c1a0e;
+  color: #2e1b22;
   line-height: 1.4;
   margin-bottom: 1rem;
 }
 
 .title-divider {
   display: block;
-  color: #e13d58;
+  color: #d95c88;
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1.6;
@@ -190,7 +190,7 @@ body {
 .intro-divider {
   width: 48px;
   height: 3px;
-  background-color: #e13d58;
+  background-color: #d95c88;
   border: none;
   margin: 0 auto;
   border-radius: 2px;
@@ -199,7 +199,7 @@ body {
 .intro-tagline {
   font-size: 1rem;
   line-height: 1.65;
-  color: #4a3728;
+  color: #4a3038;
   margin-bottom: 1.5rem;
 }
 
@@ -216,12 +216,12 @@ body {
   gap: 0.75rem;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #3d2b1f;
+  color: #3d2830;
 }
 
 .intro-list li::before {
   content: '•';
-  color: #e13d58;
+  color: #d95c88;
   font-size: 1.2rem;
   line-height: 1.4;
   flex-shrink: 0;
@@ -236,7 +236,7 @@ body {
 
 .btn-start {
   display: inline-block;
-  background-color: #e13d58;
+  background-color: #d95c88;
   color: #fff;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
@@ -250,11 +250,11 @@ body {
 }
 
 .btn-start:hover {
-  background-color: #c9334d;
+  background-color: #c24e78;
 }
 
 .btn-start:active {
-  background-color: #b52a43;
+  background-color: #a83d65;
 }
 
 @media (max-width: 480px) {
@@ -279,12 +279,12 @@ body {
 .quiz-progress-bar-track {
   width: 100%;
   height: 4px;
-  background-color: #e8d9c8;
+  background-color: #e8d3dc;
 }
 
 .quiz-progress-bar-fill {
   height: 100%;
-  background-color: #e13d58;
+  background-color: #d95c88;
   border-radius: 0 2px 2px 0;
   transition: width 0.3s ease;
 }
@@ -308,14 +308,14 @@ body {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #9c7a5e;
+  color: #956878;
 }
 
 .quiz-question {
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1.35;
-  color: #2c1a0e;
+  color: #2e1b22;
 }
 
 .quiz-emoji {
@@ -324,7 +324,7 @@ body {
 
 .quiz-hint {
   font-size: 0.875rem;
-  color: #9c7a5e;
+  color: #956878;
   font-style: italic;
   margin-top: -0.75rem;
 }
@@ -333,9 +333,9 @@ body {
   width: 100%;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
-  color: #2c1a0e;
+  color: #2e1b22;
   background-color: #fff;
-  border: 2px solid #e0cfc0;
+  border: 2px solid #e0ccd4;
   border-radius: 6px;
   padding: 0.75rem 1rem;
   outline: none;
@@ -345,7 +345,7 @@ body {
 }
 
 .quiz-textarea:focus {
-  border-color: #e13d58;
+  border-color: #d95c88;
 }
 
 /* ── Rank Question ── */
@@ -362,7 +362,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   background-color: #fff;
-  border: 2px solid #e0cfc0;
+  border: 2px solid #e0ccd4;
   border-radius: 8px;
   padding: 0.6rem 0.75rem;
   cursor: grab;
@@ -373,13 +373,13 @@ body {
 .rank-item:active {
   cursor: grabbing;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-color: #e13d58;
+  border-color: #d95c88;
 }
 
 .rank-number {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #e13d58;
+  color: #d95c88;
   min-width: 1.25rem;
   text-align: center;
 }
@@ -401,7 +401,7 @@ body {
   flex: 1;
   font-size: 0.9rem;
   line-height: 1.35;
-  color: #2c1a0e;
+  color: #2e1b22;
 }
 
 .rank-arrows {
@@ -415,7 +415,7 @@ body {
   background: none;
   border: none;
   font-size: 0.65rem;
-  color: #9c7a5e;
+  color: #956878;
   cursor: pointer;
   padding: 2px 4px;
   line-height: 1;
@@ -424,7 +424,7 @@ body {
 }
 
 .rank-arrow:hover:not(:disabled) {
-  color: #e13d58;
+  color: #d95c88;
   background-color: #fde8ec;
 }
 
@@ -468,12 +468,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2c1a0e;
+  color: #2e1b22;
   line-height: 1;
 }
 
 .rank-modal-close:hover {
-  background: #f0e4d4;
+  background: #f0dde6;
 }
 
 .quiz-choices {
@@ -487,9 +487,9 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  color: #2c1a0e;
+  color: #2e1b22;
   background-color: #fff;
-  border: 2px solid #e0cfc0;
+  border: 2px solid #e0ccd4;
   border-radius: 6px;
   padding: 0.85rem 1.25rem;
   text-align: left;
@@ -498,19 +498,19 @@ body {
 }
 
 .quiz-choice-btn:hover {
-  border-color: #e13d58;
+  border-color: #d95c88;
   background-color: #fde8ec;
 }
 
 .quiz-choice-btn.selected {
-  border-color: #e13d58;
+  border-color: #d95c88;
   background-color: #fde8ec;
   font-weight: 500;
 }
 
 .btn-next {
   align-self: flex-start;
-  background-color: #e13d58;
+  background-color: #d95c88;
   color: #fff;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
@@ -523,7 +523,7 @@ body {
 }
 
 .btn-next:hover:not(:disabled) {
-  background-color: #c9334d;
+  background-color: #c24e78;
 }
 
 .btn-next:disabled {
@@ -539,8 +539,8 @@ body {
 
 .btn-back {
   background: none;
-  border: 2px solid #e0cfc0;
-  color: #9c7a5e;
+  border: 2px solid #e0ccd4;
+  color: #956878;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -552,8 +552,8 @@ body {
 }
 
 .btn-back:hover:not(:disabled) {
-  border-color: #e13d58;
-  color: #e13d58;
+  border-color: #d95c88;
+  color: #d95c88;
 }
 
 .btn-back:disabled {
@@ -580,7 +580,7 @@ body {
   left: 0;
   right: 0;
   background: #fff;
-  border: 2px solid #e13d58;
+  border: 2px solid #d95c88;
   border-radius: 6px;
   list-style: none;
   z-index: 10;
@@ -591,7 +591,7 @@ body {
 .city-suggestion-item {
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
-  color: #2c1a0e;
+  color: #2e1b22;
   cursor: pointer;
   transition: background-color 0.1s ease;
 }
@@ -601,7 +601,7 @@ body {
 }
 
 .city-suggestion-item + .city-suggestion-item {
-  border-top: 1px solid #f0e4d4;
+  border-top: 1px solid #f0dde6;
 }
 
 /* ── Scammer Hint ── */
@@ -619,7 +619,7 @@ body {
 
 .scammer-label {
   font-size: 0.85rem;
-  color: #9c7a5e;
+  color: #956878;
   font-style: italic;
 }
 
@@ -628,7 +628,7 @@ body {
   border: none;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.85rem;
-  color: #e13d58;
+  color: #d95c88;
   cursor: pointer;
   padding: 0;
   display: inline-flex;
@@ -645,8 +645,8 @@ body {
   display: inline-block;
   width: 6px;
   height: 6px;
-  border-right: 1.5px solid #e13d58;
-  border-bottom: 1.5px solid #e13d58;
+  border-right: 1.5px solid #d95c88;
+  border-bottom: 1.5px solid #d95c88;
   transform: rotate(45deg);
   margin-bottom: 2px;
   flex-shrink: 0;
@@ -658,13 +658,13 @@ body {
 }
 
 .scammer-link {
-  color: #e13d58;
+  color: #d95c88;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .scammer-link:hover {
-  color: #c9334d;
+  color: #c24e78;
 }
 
 .scammer-list {
@@ -677,7 +677,7 @@ body {
   background: #fce8ec;
   border-radius: 6px;
   font-size: 0.875rem;
-  color: #4a3728;
+  color: #4a3038;
   line-height: 1.5;
 }
 

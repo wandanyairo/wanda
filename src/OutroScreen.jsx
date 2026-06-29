@@ -9,7 +9,7 @@ export default function OutroScreen() {
     fired.current = true
     const duration = 3000
     const end = Date.now() + duration
-    const colors = ['#e13d58', '#8b2e2e', '#f5c97a', '#FBF6EE', '#c94f7c']
+    const colors = ['#d95c88', '#7a2050', '#f5c97a', '#FBF2F5', '#c94f9c']
 
     ;(function frame() {
       confetti({ particleCount: 6, angle: 60, spread: 55, origin: { x: 0 }, colors })
