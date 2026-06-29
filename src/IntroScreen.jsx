@@ -1,6 +1,9 @@
+import SiteNav from './SiteNav'
+
 export default function IntroScreen({ onStart }) {
   return (
     <div className="intro">
+      <SiteNav />
       <header className="intro-header">
         <h1>Things to Know</h1>
         <hr className="intro-divider" />

@@ -1,6 +1,9 @@
+import SiteNav from './SiteNav'
+
 export default function WelcomeScreen({ onNext }) {
   return (
     <div className="welcome">
+      <SiteNav />
       <div className="welcome-header">
         <h1>
           Wanda's Worldwide Wine Tours™

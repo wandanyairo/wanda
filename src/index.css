@@ -11,6 +11,42 @@ body {
   min-height: 100vh;
 }
 
+/* ── Site Nav ── */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #ecdece;
+}
+
+.site-nav-logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #D4763B;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
+
+.site-nav-logo-img {
+  height: 32px;
+  width: auto;
+}
+
+.site-nav-year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #9c7a5e;
+}
+
 /* ── Welcome / Outro Screens ── */
 
 .welcome,
@@ -359,7 +395,7 @@ body {
   height: 64px;
   object-fit: contain;
   border-radius: 4px;
-  background-color: #fdf6ee;
+  background-color: #ffffff;
   flex-shrink: 0;
 }
 
