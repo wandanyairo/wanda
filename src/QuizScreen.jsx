@@ -28,15 +28,13 @@ export default function QuizScreen({
       <div className="quiz-inner">
         <p className="quiz-progress-label">{currentIndex + 1} of {total}</p>
 
-        <div className="quiz-question-block">
-          <h2 className="quiz-question">
-            {question.emoji && <span className="quiz-emoji">{question.emoji} </span>}
-            {question.text}
-          </h2>
+        <h2 className="quiz-question">
+          {question.emoji && <span className="quiz-emoji">{question.emoji} </span>}
+          {question.text}
           {question.subtext && (
-            <p className="quiz-subtext">{question.subtext}</p>
+            <><br /><br />{question.subtext}</>
           )}
-        </div>
+        </h2>
 
         {question.hint === 'scammers' && <ScammerHint />}
         {question.hint && question.hint !== 'scammers' && (

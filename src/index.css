@@ -48,7 +48,7 @@ body {
 }
 
 .welcome-header {
-  padding: 1.25rem 1.25rem 0;
+  padding: 2rem 1.25rem 2rem;
   text-align: center;
 }
 
@@ -64,6 +64,13 @@ body {
   font-size: 1.05rem;
   line-height: 1.65;
   color: #4a3728;
+}
+
+.outro-submitted {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #D4763B;
+  line-height: 1.2;
 }
 
 .outro-text h1 {
@@ -512,21 +519,6 @@ body {
   border-top: 1px solid #f0e4d4;
 }
 
-/* ── Quiz subtext ── */
-
-.quiz-question-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.quiz-subtext {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.55;
-  color: #5a3e28;
-}
-
 /* ── Scammer Hint ── */
 
 .scammer-hint {
@@ -537,6 +529,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .scammer-label {
@@ -553,9 +546,9 @@ body {
   color: #D4763B;
   cursor: pointer;
   padding: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
   white-space: nowrap;
 }
 
@@ -564,8 +557,29 @@ body {
 }
 
 .scammer-caret {
-  font-size: 0.55rem;
-  line-height: 1;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #D4763B;
+  border-bottom: 1.5px solid #D4763B;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.scammer-caret--open {
+  transform: rotate(-135deg);
+  margin-bottom: -2px;
+}
+
+.scammer-link {
+  color: #D4763B;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.scammer-link:hover {
+  color: #bf6530;
 }
 
 .scammer-list {

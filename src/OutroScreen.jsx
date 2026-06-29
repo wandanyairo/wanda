@@ -26,7 +26,8 @@ export default function OutroScreen() {
       </div>
 
       <div className="outro-text">
-        <h1>Your answers have been submitted! Thank you for participating and for repping your city 🌍</h1>
+        <p className="outro-submitted">Your answers have been submitted!</p>
+        <h1>Thank you for participating and for repping your city 🌍</h1>
 
         <ul className="outro-list">
           <li>Reminder: this was fully anonymous. Nothing here was tied to your name</li>
@@ -38,7 +39,7 @@ export default function OutroScreen() {
         </ul>
 
         <p className="outro-promo">
-          To get into the spirit of Wanda's Worldwide Wine Tours season, check out:{' '}
+          To get into the spirit of the season, check out:{' '}
           <em>Wine Crime</em> on the Scamfluencers podcast (Apple Podcasts).
           More wine and crime to come 😈
         </p>
