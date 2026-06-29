@@ -57,7 +57,7 @@ export const QUESTIONS = [
     type: 'choice-explain',
     emoji: '🍇',
     text: "Let's settle the great grape debate once and for all. Which grape is superior and why?",
-    options: ['Green grapes', 'Red grapes'],
+    options: ['Green', 'Red'],
   },
   {
     id: 'rank-cheeses',
@@ -99,6 +99,6 @@ export const QUESTIONS = [
     type: 'text',
     emoji: '🥂',
     text: 'Wishes for Wanda: what is your wish for the birthday girl in her new decade?',
-    hint: "Be as specific as possible please—let's not leave the universe room for misinterpretation!",
+    hint: "Be as specific as possible please—let's only leave the universe room for magic and not misinterpretation!",
   },
 ]

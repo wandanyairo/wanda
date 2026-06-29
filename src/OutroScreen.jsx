@@ -27,10 +27,10 @@ export default function OutroScreen() {
 
       <div className="outro-text">
         <p className="outro-submitted">Your answers have been submitted!</p>
-        <h1 className="outro-thankyou">Thank you for participating and for repping your city 🌍</h1>
+        <h1 className="outro-thankyou">Thank you for participating and for repping your city <span style={{ fontStyle: 'normal' }}>🌍</span></h1>
 
         <ul className="outro-list">
-          <li>Reminder: this was fully anonymous. Nothing here was tied to your name</li>
+          <li>Reminder: this was fully anonymous</li>
           <li>You can return to this link anytime to see the questions and your answers</li>
           <li>
             Answers will be revealed on July 10 at the party (for those attending)
