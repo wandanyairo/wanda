@@ -11,42 +11,6 @@ body {
   min-height: 100vh;
 }
 
-/* ── Site Nav ── */
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1.25rem;
-  border-bottom: 1px solid #ecdece;
-}
-
-.site-nav-logo-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #D4763B;
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0;
-}
-
-.site-nav-logo-img {
-  height: 32px;
-  width: auto;
-}
-
-.site-nav-year {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #9c7a5e;
-}
-
 /* ── Welcome / Outro Screens ── */
 
 .welcome,
@@ -93,6 +57,11 @@ body {
   font-weight: 600;
   color: #2c1a0e;
   line-height: 1.4;
+}
+
+.welcome-year {
+  font-weight: 300;
+  color: #9c7a5e;
 }
 
 .welcome-text p,
@@ -437,6 +406,49 @@ body {
 .rank-arrow:disabled {
   opacity: 0.2;
   cursor: not-allowed;
+}
+
+/* ── Image Modal ── */
+
+.rank-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1.5rem;
+}
+
+.rank-modal-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.rank-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2c1a0e;
+  line-height: 1;
+}
+
+.rank-modal-close:hover {
+  background: #f0e4d4;
 }
 
 .quiz-choices {

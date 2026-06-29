@@ -4,6 +4,7 @@ export default function RankQuestion({ options: initialOptions, value, onChange 
   const [items, setItems] = useState(() =>
     value?.length ? value : initialOptions.map(o => o.id)
   )
+  const [modalSrc, setModalSrc] = useState(null)
   const dragItem = useRef(null)
   const dragOver = useRef(null)
 
@@ -41,6 +42,7 @@ export default function RankQuestion({ options: initialOptions, value, onChange 
   const hasImages = initialOptions.some(o => o.image)
 
   return (
+    <>
     <ol className="rank-list">
       {items.map((id, index) => {
         const opt = getOption(id)
@@ -56,7 +58,15 @@ export default function RankQuestion({ options: initialOptions, value, onChange 
           >
             <span className="rank-number">{index + 1}</span>
             {opt.image
-              ? <img className="rank-image" src={opt.image} alt={opt.label} />
+              ? (
+                <img
+                  className="rank-image"
+                  src={opt.image}
+                  alt={opt.label}
+                  onClick={e => { e.stopPropagation(); setModalSrc(opt.image) }}
+                  style={{ cursor: 'zoom-in' }}
+                />
+              )
               : <span className="rank-label">{opt.label}</span>
             }
             <div className="rank-arrows">
@@ -77,5 +87,13 @@ export default function RankQuestion({ options: initialOptions, value, onChange 
         )
       })}
     </ol>
+
+      {modalSrc && (
+        <div className="rank-modal-overlay" onClick={() => setModalSrc(null)}>
+          <button className="rank-modal-close" onClick={() => setModalSrc(null)} aria-label="Close">✕</button>
+          <img className="rank-modal-img" src={modalSrc} alt="" onClick={e => e.stopPropagation()} />
+        </div>
+      )}
+    </>
   )
 }

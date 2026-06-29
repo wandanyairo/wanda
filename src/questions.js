@@ -28,7 +28,7 @@ export const QUESTIONS = [
     type: 'rank',
     emoji: '🍷',
     text: "Rank these from Wanda's most to least preferred vessel for drinking wine",
-    hint: 'Drag to reorder — #1 is most preferred',
+    hint: 'Drag to reorder — #1 is most preferred · Tap an image to view it larger',
     options: [
       { id: 'mug',              label: 'A Mug',                                    image: '/glasses/mug.png' },
       { id: 'angular-stem',     label: 'Angular Goblet with Tall Skinny Stem',   image: '/glasses/angular-stem.png' },
@@ -97,7 +97,7 @@ export const QUESTIONS = [
   {
     id: 'wishes',
     type: 'text',
-    emoji: '🥂',
+    emoji: '✨',
     text: 'Wishes for Wanda: what is your wish for the birthday girl in her new decade?',
     hint: "Be as specific as possible please—let's only leave the universe room for magic and not misinterpretation!",
   },

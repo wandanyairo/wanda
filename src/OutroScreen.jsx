@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import confetti from 'canvas-confetti'
-import SiteNav from './SiteNav'
 
 export default function OutroScreen() {
   const fired = useRef(false)
@@ -21,7 +20,6 @@ export default function OutroScreen() {
 
   return (
     <div className="outro">
-      <SiteNav />
       <div className="outro-image-placeholder">
         {/* Replace with <img> when you have the image ready */}
         <span className="welcome-image-emoji">🥂</span>

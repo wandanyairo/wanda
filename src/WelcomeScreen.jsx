@@ -1,14 +1,11 @@
-import SiteNav from './SiteNav'
-
 export default function WelcomeScreen({ onNext }) {
   return (
     <div className="welcome">
-      <SiteNav />
       <div className="welcome-header">
         <h1>
           Wanda's Worldwide Wine Tours™
           <span className="title-divider"> ~ </span>
-          The Quiz
+          The Quiz <span className="welcome-year">(2026)</span>
         </h1>
       </div>
       <div className="welcome-image-placeholder">
