@@ -2,12 +2,12 @@ export const QUESTIONS = [
   {
     id: 'city',
     type: 'city',
-    text: 'What city are you in?',
+    text: 'Which city/town are you in?',
   },
   {
     id: 'attendance',
     type: 'choice',
-    text: 'Will you be celebrating with me in person in NYC, or joining the fun from afar?',
+    text: 'Will you be celebrating at the soirée in NYC, or joining the fun from afar?',
     options: ['In-person', 'Remote'],
   },
   {
@@ -27,7 +27,7 @@ export const QUESTIONS = [
     id: 'rank-glasses',
     type: 'rank',
     emoji: '🍷',
-    text: "Rank these wine glasses from Wanda's most to least preferred vessel for drinking wine",
+    text: "Rank these from Wanda's most to least preferred vessel for drinking wine",
     hint: 'Drag to reorder — #1 is most preferred',
     options: [
       { id: 'mug',              label: 'A Mug',                                    image: '/glasses/mug.png' },
@@ -57,7 +57,7 @@ export const QUESTIONS = [
     type: 'choice-explain',
     emoji: '🍇',
     text: "Let's settle the great grape debate once and for all. Which grape is superior and why?",
-    options: ['Red grapes', 'Green grapes'],
+    options: ['Green grapes', 'Red grapes'],
   },
   {
     id: 'rank-cheeses',

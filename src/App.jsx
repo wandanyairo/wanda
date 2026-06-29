@@ -41,7 +41,11 @@ export default function App() {
   }
 
   function handleBack() {
-    if (currentIndex > 0) setCurrentIndex(i => i - 1)
+    if (currentIndex > 0) {
+      setCurrentIndex(i => i - 1)
+    } else {
+      setScreen('intro')
+    }
   }
 
   if (screen === 'welcome') return <WelcomeScreen onNext={() => setScreen('intro')} />

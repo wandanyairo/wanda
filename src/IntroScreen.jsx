@@ -19,7 +19,7 @@ export default function IntroScreen({ onStart }) {
           and you must complete it in one sitting
         </li>
         <li>You can return to the link anytime to see the questions and your answers</li>
-        <li>Deadline: July 8 at 11:59 pm EST</li>
+        <li><strong>Deadline: July 8 at 11:59 pm EST</strong></li>
         <li>
           Answers will be revealed on July 10 at the party (for those attending)
           and remotely via a Partiful Card (for those not attending)

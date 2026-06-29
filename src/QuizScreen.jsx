@@ -95,7 +95,7 @@ export default function QuizScreen({
           <button className="btn-next" onClick={onNext} disabled={!hasAnswer}>
             {isLast ? 'Submit' : 'Next →'}
           </button>
-          <button className="btn-back" onClick={onBack} disabled={currentIndex === 0}>
+          <button className="btn-back" onClick={onBack}>
             ← Back
           </button>
         </div>

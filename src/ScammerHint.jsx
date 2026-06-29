@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 const SCAMMERS = [
-  { name: 'Anna Delvey', desc: 'No explanation needed', url: 'https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TCsorspItqwyYPQSTszLS1RISc0pS61UyEstScvJrAAA2JwMbw&q=anna+delvey+netflix&oq=anna+delvy+&gs_lcrp=EgZjaHJvbWUqEAgBEC4YkQIYsQMYgAQYigUyBggAEEUYOTIQCAEQLhiRAhixAxiABBiKBTINCAIQABiRAhiABBiKBTINCAMQABiRAhiABBiKBTINCAQQABiRAhiABBiKBTILCAUQABgKGAsYgAQyCwgGEC4YChgLGIAEMg4IBxAAGAoYCxixAxiABDILCAgQABgKGAsYgATSAQg0MjU0ajBqOagCBrACAfEFItdepfSJ1kc&sourceid=chrome&ie=UTF-8' },
+  { name: 'Anna Delvey', desc: 'No explanation needed', url: 'https://www.netflix.com/title/81008305' },
   { name: 'Doris Payne', desc: 'Jewelry Heist Queen', url: 'https://www.primevideo.com/detail/0R7AH8YV0Q6A2B0R126XHYM8EP' },
   { name: 'Imelda Marcos', desc: 'Politics', url: 'https://www.primevideo.com/detail/0J8SWJH5130NQNS2EBJBCVDZII/ref=atv_sr_fle_c_sr62ef6f_1_1_1?sr=1-1&pageTypeIdSource=ASIN&pageTypeId=B0GX14DZ6Y&qid=1782705302708' },
   { name: 'Jho Low', desc: 'Sovereign Funds', url: 'https://www.netflix.com/title/81735368' },
