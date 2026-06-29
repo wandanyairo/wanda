@@ -26,7 +26,10 @@ export default function QuizScreen({
       </div>
 
       <div className="quiz-inner">
-        <p className="quiz-progress-label">{currentIndex + 1} of {total}</p>
+        <p className="quiz-progress-label">
+          <span className="welcome-year">WWWT · 2026</span>
+          {currentIndex + 1} of {total}
+        </p>
 
         <h2 className="quiz-question">
           {question.emoji && <span className="quiz-emoji">{question.emoji} </span>}

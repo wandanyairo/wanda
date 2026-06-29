@@ -64,12 +64,12 @@ body {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: #9c7a5e;
-  background: #ecdece;
+  color: #D4763B;
+  background: #fde8d4;
   border-radius: 999px;
   padding: 0.15em 0.6em;
   vertical-align: middle;
-  margin-left: 0.25rem;
+  margin-left: 0;
 }
 
 .welcome-text p,
@@ -287,6 +287,9 @@ body {
 }
 
 .quiz-progress-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.08em;

@@ -51,7 +51,7 @@ export default function OutroScreen() {
           {' '}on the Scamfluencers podcast. More wine and crime to come 😈
         </p>
 
-        <p className="outro-sign-off">Happy Wanda's Worldwide Wine Tours™!</p>
+        <p className="outro-sign-off">Cheers!</p>
       </div>
     </div>
   )

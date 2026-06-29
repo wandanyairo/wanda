@@ -2,6 +2,7 @@ export default function IntroScreen({ onStart }) {
   return (
     <div className="intro">
       <header className="intro-header">
+        <span className="welcome-year">WWWT · 2026</span>
         <h1>Things to Know</h1>
         <hr className="intro-divider" />
       </header>
