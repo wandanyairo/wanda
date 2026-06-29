@@ -30,12 +30,12 @@ export const QUESTIONS = [
     text: "Rank these wine glasses from Wanda's most to least preferred vessel for drinking wine",
     hint: 'Drag to reorder — #1 is most preferred',
     options: [
-      { id: 'angular-stem',     label: 'Angular Goblet with Tall Skinny Stem',   image: '/glasses/angular-stem.jpg' },
-      { id: 'rounded-stem',     label: 'Rounded Goblet with Tall Skinny Stem',    image: '/glasses/rounded-stem.jpg' },
-      { id: 'stemless',         label: 'Stemless Wine Glass',                      image: '/glasses/stemless.jpg' },
-      { id: 'wine-cooler-mug',  label: 'Wine Cooler Mug',                          image: '/glasses/wine-cooler-mug.jpg' },
-      { id: 'mug',              label: 'A Mug',                                    image: '/glasses/mug.jpg' },
-      { id: 'short-thick-stem', label: 'Short Wine Glass with Thick Stem',         image: '/glasses/short-thick-stem.jpg' },
+      { id: 'angular-stem',     label: 'Angular Goblet with Tall Skinny Stem',   image: '/glasses/angular-stem.png' },
+      { id: 'rounded-stem',     label: 'Rounded Goblet with Tall Skinny Stem',    image: '/glasses/rounded-stem.png' },
+      { id: 'stemless',         label: 'Stemless Wine Glass',                      image: '/glasses/stemless.png' },
+      { id: 'wine-cooler-mug',  label: 'Wine Cooler Mug',                          image: '/glasses/wine-cooler-mug.png' },
+      { id: 'mug',              label: 'A Mug',                                    image: '/glasses/mug.png' },
+      { id: 'short-thick-stem', label: 'Short Wine Glass with Thick Stem',         image: '/glasses/short-thick-stem.png' },
     ],
   },
   {
