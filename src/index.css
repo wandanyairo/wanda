@@ -23,7 +23,7 @@ body {
 .welcome-image-placeholder,
 .outro-image-placeholder {
   flex: 1;
-  background: linear-gradient(160deg, #f5ede0 0%, #e8d0b8 100%);
+  background: linear-gradient(160deg, #fce8ec 0%, #f5c9d2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,7 +95,7 @@ body {
 .outro-submitted {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #D4763B;
+  color: #e13d58;
   line-height: 1.2;
 }
 
@@ -126,7 +126,7 @@ body {
 
 .outro-list li::before {
   content: '•';
-  color: #D4763B;
+  color: #e13d58;
   flex-shrink: 0;
 }
 
@@ -135,8 +135,8 @@ body {
   line-height: 1.6;
   color: #4a3728;
   padding: 1rem 1.25rem;
-  background: #f5ede0;
-  border-left: 3px solid #D4763B;
+  background: #fce8ec;
+  border-left: 3px solid #e13d58;
   border-radius: 4px;
   text-align: left;
 }
@@ -149,13 +149,13 @@ body {
 }
 
 .outro-link {
-  color: #D4763B;
+  color: #e13d58;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .outro-link:hover {
-  color: #bf6530;
+  color: #c9334d;
 }
 
 /* ── Intro Screen ── */
@@ -181,7 +181,7 @@ body {
 
 .title-divider {
   display: block;
-  color: #D4763B;
+  color: #e13d58;
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1.6;
@@ -190,7 +190,7 @@ body {
 .intro-divider {
   width: 48px;
   height: 3px;
-  background-color: #D4763B;
+  background-color: #e13d58;
   border: none;
   margin: 0 auto;
   border-radius: 2px;
@@ -221,7 +221,7 @@ body {
 
 .intro-list li::before {
   content: '•';
-  color: #D4763B;
+  color: #e13d58;
   font-size: 1.2rem;
   line-height: 1.4;
   flex-shrink: 0;
@@ -236,7 +236,7 @@ body {
 
 .btn-start {
   display: inline-block;
-  background-color: #D4763B;
+  background-color: #e13d58;
   color: #fff;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
@@ -250,11 +250,11 @@ body {
 }
 
 .btn-start:hover {
-  background-color: #bf6530;
+  background-color: #c9334d;
 }
 
 .btn-start:active {
-  background-color: #a8572a;
+  background-color: #b52a43;
 }
 
 @media (max-width: 480px) {
@@ -284,7 +284,7 @@ body {
 
 .quiz-progress-bar-fill {
   height: 100%;
-  background-color: #D4763B;
+  background-color: #e13d58;
   border-radius: 0 2px 2px 0;
   transition: width 0.3s ease;
 }
@@ -345,7 +345,7 @@ body {
 }
 
 .quiz-textarea:focus {
-  border-color: #D4763B;
+  border-color: #e13d58;
 }
 
 /* ── Rank Question ── */
@@ -373,13 +373,13 @@ body {
 .rank-item:active {
   cursor: grabbing;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-color: #D4763B;
+  border-color: #e13d58;
 }
 
 .rank-number {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #D4763B;
+  color: #e13d58;
   min-width: 1.25rem;
   text-align: center;
 }
@@ -424,8 +424,8 @@ body {
 }
 
 .rank-arrow:hover:not(:disabled) {
-  color: #D4763B;
-  background-color: #fdf0e6;
+  color: #e13d58;
+  background-color: #fde8ec;
 }
 
 .rank-arrow:disabled {
@@ -498,19 +498,19 @@ body {
 }
 
 .quiz-choice-btn:hover {
-  border-color: #D4763B;
-  background-color: #fdf0e6;
+  border-color: #e13d58;
+  background-color: #fde8ec;
 }
 
 .quiz-choice-btn.selected {
-  border-color: #D4763B;
-  background-color: #fdf0e6;
+  border-color: #e13d58;
+  background-color: #fde8ec;
   font-weight: 500;
 }
 
 .btn-next {
   align-self: flex-start;
-  background-color: #D4763B;
+  background-color: #e13d58;
   color: #fff;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
@@ -523,7 +523,7 @@ body {
 }
 
 .btn-next:hover:not(:disabled) {
-  background-color: #bf6530;
+  background-color: #c9334d;
 }
 
 .btn-next:disabled {
@@ -552,8 +552,8 @@ body {
 }
 
 .btn-back:hover:not(:disabled) {
-  border-color: #D4763B;
-  color: #D4763B;
+  border-color: #e13d58;
+  color: #e13d58;
 }
 
 .btn-back:disabled {
@@ -580,7 +580,7 @@ body {
   left: 0;
   right: 0;
   background: #fff;
-  border: 2px solid #D4763B;
+  border: 2px solid #e13d58;
   border-radius: 6px;
   list-style: none;
   z-index: 10;
@@ -597,7 +597,7 @@ body {
 }
 
 .city-suggestion-item:hover {
-  background-color: #fdf0e6;
+  background-color: #fde8ec;
 }
 
 .city-suggestion-item + .city-suggestion-item {
@@ -628,7 +628,7 @@ body {
   border: none;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.85rem;
-  color: #D4763B;
+  color: #e13d58;
   cursor: pointer;
   padding: 0;
   display: inline-flex;
@@ -645,8 +645,8 @@ body {
   display: inline-block;
   width: 6px;
   height: 6px;
-  border-right: 1.5px solid #D4763B;
-  border-bottom: 1.5px solid #D4763B;
+  border-right: 1.5px solid #e13d58;
+  border-bottom: 1.5px solid #e13d58;
   transform: rotate(45deg);
   margin-bottom: 2px;
   flex-shrink: 0;
@@ -658,13 +658,13 @@ body {
 }
 
 .scammer-link {
-  color: #D4763B;
+  color: #e13d58;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .scammer-link:hover {
-  color: #bf6530;
+  color: #c9334d;
 }
 
 .scammer-list {
@@ -674,7 +674,7 @@ body {
   flex-direction: column;
   gap: 0.4rem;
   padding: 0.75rem 1rem;
-  background: #f5ede0;
+  background: #fce8ec;
   border-radius: 6px;
   font-size: 0.875rem;
   color: #4a3728;
