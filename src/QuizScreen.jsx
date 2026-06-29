@@ -73,15 +73,15 @@ export default function QuizScreen({
         )}
 
         <div className="quiz-nav">
-          {currentIndex > 0 && (
-            <button className="btn-back" onClick={onBack}>← Back</button>
-          )}
           <button
             className="btn-next"
             onClick={onNext}
             disabled={!hasAnswer}
           >
             {isLast ? 'Finish' : 'Next →'}
+          </button>
+          <button className="btn-back" onClick={onBack} disabled={currentIndex === 0}>
+            ← Back
           </button>
         </div>
       </div>

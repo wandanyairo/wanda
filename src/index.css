@@ -327,7 +327,7 @@ body {
 
 .quiz-nav {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 0.75rem;
 }
 
@@ -342,11 +342,24 @@ body {
   border-radius: 6px;
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease;
+  text-align: center;
 }
 
-.btn-back:hover {
+.btn-back:hover:not(:disabled) {
   border-color: #D4763B;
   color: #D4763B;
+}
+
+.btn-back:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+@media (min-width: 481px) {
+  .quiz-nav {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
 }
 
 /* ── City Search ── */
@@ -390,7 +403,8 @@ body {
     font-size: 1.2rem;
   }
 
-  .btn-next {
+  .btn-next,
+  .btn-back {
     width: 100%;
     text-align: center;
   }
