@@ -75,6 +75,8 @@ body {
 /* Pill on the welcome title */
 .welcome-header .welcome-year {
   margin-left: 0.25rem;
+  position: relative;
+  top: -2px;
 }
 
 /* Space between pill and h1 on intro */
@@ -234,7 +236,7 @@ body {
 
 .btn-start {
   display: inline-block;
-  background-color: #d95c88;
+  background: linear-gradient(135deg, #d95c88 0%, #f0a356 100%);
   color: #fff;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
@@ -244,15 +246,16 @@ body {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: opacity 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-start:hover {
-  background-color: #c24e78;
+  opacity: 0.9;
+  box-shadow: 0 4px 16px rgba(217, 92, 136, 0.35);
 }
 
 .btn-start:active {
-  background-color: #a83d65;
+  opacity: 0.8;
 }
 
 @media (max-width: 480px) {
