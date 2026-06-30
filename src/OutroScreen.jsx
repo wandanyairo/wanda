@@ -3,7 +3,7 @@ export default function OutroScreen() {
     <div className="outro">
       <div className="outro-content">
         <p className="outro-submitted">Your answers have been submitted!</p>
-        <h1 className="outro-thankyou">Thank you for participating and for repping your city <span style={{ fontStyle: 'normal' }}>🌍</span></h1>
+        <h1 className="outro-thankyou">Thank you for participating 🌍🍷</h1>
 
         <ul className="outro-list">
           <li>Reminder: this was fully anonymous</li>

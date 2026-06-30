@@ -75,7 +75,7 @@ body {
 
 /* Pill on the welcome title */
 .welcome-header .welcome-year {
-  font-size: 13px;
+  font-size: 15px;
   margin-left: 0.25rem;
   position: relative;
   top: -2px;
