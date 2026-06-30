@@ -76,7 +76,7 @@ body {
 .welcome-header .welcome-year {
   font-size: 1rem;
   padding: 0.2em 0.75em;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
 }
 
 /* Space between pill and h1 on intro */
@@ -309,6 +309,13 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #956878;
+}
+
+.quiz-progress-label .welcome-year {
+  background: #f0a356;
+  color: #fff;
+  position: relative;
+  top: 1px;
 }
 
 .quiz-question {
