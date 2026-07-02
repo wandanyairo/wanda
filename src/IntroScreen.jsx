@@ -13,8 +13,7 @@ export default function IntroScreen({ onStart }) {
           You will be asked for your city and whether you're celebrating remotely or in person at the soirée in NYC—this is solely for prize allocation purposes
         </li>
         <li>
-          There are 10 questions total, it should take around 10 minutes to finish
-          and you must complete it in one sitting
+          There are 10 quiz questions total, it should take around 10 minutes to finish and you must complete it in one sitting
         </li>
         <li>You can return to the link anytime to see the questions and your answers</li>
         <li><strong>Deadline: July 8 at 11:59 pm EST</strong></li>
