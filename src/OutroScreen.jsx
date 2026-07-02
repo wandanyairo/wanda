@@ -7,7 +7,7 @@ export default function OutroScreen() {
         <ul className="outro-list">
           <li>Reminder: this was anonymous</li>
           <li>You can return to this link anytime using your nickname to see your answers</li>
-          <li>Results will be revealed here on July 10 at 12pm EST and winners will be announced at the soirée and remotely</li>
+          <li>Results will be revealed here on July 10 12pm EST and winners will be announced at the soirée and remotely</li>
         </ul>
 
         <p className="outro-promo">
