@@ -20,7 +20,7 @@ body {
 
 .welcome,
 .outro {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,13 +171,13 @@ body {
 /* ── Intro Screen ── */
 
 .intro {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
   margin: 0 auto;
-  padding: 2.5rem 1.25rem 4rem;
+  padding: 2rem 1.25rem;
 }
 
 .intro-header {

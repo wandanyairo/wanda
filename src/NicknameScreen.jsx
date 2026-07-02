@@ -27,7 +27,6 @@ export default function NicknameScreen({ onSubmit, onBack, loading, error }) {
           value={value}
           onChange={e => setValue(e.target.value)}
           maxLength={30}
-          autoFocus
         />
         {error && <p className="nickname-error">{error}</p>}
       </div>
