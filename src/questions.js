@@ -29,7 +29,7 @@ export const QUESTIONS = [
     type: 'rank',
     emoji: '🍷',
     text: "Rank these from Wanda's most to least preferred vessel for drinking wine",
-    hint: 'Drag to reorder — #1 is most preferred. Tap an image to enlarge it.',
+    hint: 'Tap the arrows to reorder — #1 is most preferred. Tap an image to enlarge it.',
     options: [
       { id: 'mug',              label: 'A Mug',                                    image: '/glasses/mug.png' },
       { id: 'angular-stem',     label: 'Angular Goblet with Tall Skinny Stem',   image: '/glasses/angular-stem.png' },
@@ -44,7 +44,7 @@ export const QUESTIONS = [
     type: 'rank',
     emoji: '🍷',
     text: "Rank Wanda's fave wines",
-    hint: 'Drag to reorder — #1 is most favourite',
+    hint: 'Tap the arrows to reorder — #1 is most favourite',
     options: [
       { id: 'chilled-malbec',label: 'Chilled Malbec' },
       { id: 'pinot-grigio',  label: 'Pinot Grigio' },
@@ -65,7 +65,7 @@ export const QUESTIONS = [
     type: 'rank',
     emoji: '🧀',
     text: "Rank Wanda's fave cheeses",
-    hint: 'Drag to reorder — #1 is most favourite',
+    hint: 'Tap the arrows to reorder — #1 is most favourite',
     options: [
       { id: 'brie',      label: 'Brie' },
       { id: 'cheddar',   label: 'Cheddar' },
