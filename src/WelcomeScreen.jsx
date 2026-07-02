@@ -10,7 +10,7 @@ export default function WelcomeScreen({ onNext }) {
           </h1>
         </div>
         <p className="welcome-tagline">
-          Since we can't bring Wanda around the world for a wine tour, we are
+          Since we can't bring Wanda around the world for wine tours, we are
           bringing the world and the wine to Wanda 🍷🍇🧀
         </p>
         <button className="btn-start btn-start--inverse" onClick={onNext}>Let's Go →</button>

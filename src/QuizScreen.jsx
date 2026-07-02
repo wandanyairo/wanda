@@ -19,6 +19,11 @@ export default function QuizScreen({
 
   return (
     <div className={`quiz${submitting ? ' quiz--submitting' : ''}`}>
+      {submitting && (
+        <div className="quiz-submit-overlay">
+          <p className="quiz-submit-message">Your answers have been submitted!</p>
+        </div>
+      )}
       <div className="quiz-progress-bar-track">
         <div
           className="quiz-progress-bar-fill"
