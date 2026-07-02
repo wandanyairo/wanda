@@ -91,7 +91,7 @@ export default function QuizScreen({
                 <div className="answer-feedback-text">
                   {questionScore > 0
                     ? <p className="answer-feedback-correct"><Check /> Correct!</p>
-                    : <p className="answer-feedback-wrong"><Cross /> Not quite—the answer is green apples (granny smith to be precise)</p>
+                    : <p className="answer-feedback-wrong"><Cross /> Not quite—the answer is apples (green, granny smith, or pink lady to be precise)</p>
                   }
                 </div>
               )}

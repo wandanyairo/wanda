@@ -874,7 +874,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  flex: 1;
+  margin-bottom: 1rem;
 }
 
 .nickname-desc {
