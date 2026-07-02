@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
+import { supabase } from './supabase.js'
 import WelcomeScreen from './WelcomeScreen.jsx'
 import IntroScreen from './IntroScreen.jsx'
 import QuizScreen from './QuizScreen.jsx'
@@ -49,6 +50,20 @@ export default function App() {
       setCurrentIndex(i => i + 1)
     } else {
       setSubmitting(true)
+      supabase.from('submissions').insert([{
+        city:           answers['city'],
+        attendance:     answers['attendance'],
+        favourite_fruit: answers['favourite-fruit'],
+        wine_self:      answers['if-you-were-a-wine'],
+        rank_glasses:   answers['rank-glasses'],
+        rank_wines:     answers['rank-wines'],
+        grape_debate:   answers['grape-debate'],
+        rank_cheeses:   answers['rank-cheeses'],
+        scamfluencer:   answers['scamfluencer'],
+        veggie:         answers['veggie'],
+        advice:         answers['advice'],
+        wishes:         answers['wishes'],
+      }])
       setTimeout(() => fireConfetti(), 500)
       setTimeout(() => setScreen('done'), 2500)
     }
