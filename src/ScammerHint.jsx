@@ -8,7 +8,7 @@ const SCAMMERS = [
   { name: 'Nirav Modi', desc: 'Jewelry Innovator', url: 'https://www.netflix.com/title/80990073' },
   { name: 'Razzlekhan', desc: 'Crypto', url: 'https://www.netflix.com/title/81600031' },
   { name: 'Richard Vallières', desc: 'Maple Syrup', url: 'https://podcasts.apple.com/au/podcast/the-great-syrup-swindle/id1616682405?i=1000628872476' },
-  { name: 'Rita Crundwell', desc: 'Comptroller Horse Lady', url: 'https://www.amazon.com/All-Queens-Horses-Gene-Biggerstaff/dp/B07BPNGP85' },
+  { name: 'Rita Crundwell', desc: 'Comptroller Horse Lady', url: 'https://www.primevideo.com/detail/0J82NHA1B6HSUSOG6WS35E76V0' },
   { name: 'Rudy Kurniawan', desc: 'Wine!', url: 'https://podcasts.apple.com/us/podcast/encore-wine-crime/id1616682405?i=1000648537961' },
   { name: 'Shaman Durek Verrett', desc: 'Romance etc.', url: 'https://www.netflix.com/title/81763742' },
 ]
