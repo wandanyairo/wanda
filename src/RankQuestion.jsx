@@ -5,8 +5,10 @@ export default function RankQuestion({ options: initialOptions, value, onChange,
     value?.length ? value : initialOptions.map(o => o.id)
   )
   const [modalSrc, setModalSrc] = useState(null)
+  const [draggingIndex, setDraggingIndex] = useState(null)
   const dragItem = useRef(null)
   const dragOver = useRef(null)
+  const listRef = useRef(null)
 
   function getOption(id) {
     return initialOptions.find(o => o.id === id)
@@ -21,8 +23,10 @@ export default function RankQuestion({ options: initialOptions, value, onChange,
     onChange(next)
   }
 
+  // Mouse drag handlers
   function onDragStart(index) {
     dragItem.current = index
+    setDraggingIndex(index)
   }
 
   function onDragEnter(index) {
@@ -35,15 +39,47 @@ export default function RankQuestion({ options: initialOptions, value, onChange,
     next.splice(dragOver.current, 0, dragged)
     dragItem.current = null
     dragOver.current = null
+    setDraggingIndex(null)
     setItems(next)
     onChange(next)
   }
 
+  // Touch drag handlers
+  function onTouchStart(e, index) {
+    dragItem.current = index
+    setDraggingIndex(index)
+  }
+
+  function onTouchMove(e) {
+    e.preventDefault()
+    const touch = e.touches[0]
+    const el = document.elementFromPoint(touch.clientX, touch.clientY)
+    const li = el?.closest('li[data-index]')
+    if (li) {
+      const idx = parseInt(li.dataset.index, 10)
+      if (!isNaN(idx)) dragOver.current = idx
+    }
+  }
+
+  function onTouchEnd() {
+    if (dragItem.current !== null && dragOver.current !== null && dragItem.current !== dragOver.current) {
+      const next = [...items]
+      const dragged = next.splice(dragItem.current, 1)[0]
+      next.splice(dragOver.current, 0, dragged)
+      setItems(next)
+      onChange(next)
+    }
+    dragItem.current = null
+    dragOver.current = null
+    setDraggingIndex(null)
+  }
+
   const hasImages = initialOptions.some(o => o.image)
+  const interactive = !correctOrder && !readOnly
 
   return (
     <>
-    <ol className="rank-list">
+    <ol className="rank-list" ref={listRef}>
       {items.map((id, index) => {
         const opt = getOption(id)
         const isCorrectPos = correctOrder ? correctOrder[index] === id : null
@@ -52,12 +88,16 @@ export default function RankQuestion({ options: initialOptions, value, onChange,
         return (
           <li
             key={id}
-            className={`rank-item${hasImages ? ' rank-item--image' : ''}${correctOrder ? (isCorrectPos ? ' rank-item--correct' : ' rank-item--wrong') : ''}`}
-            draggable={!correctOrder && !readOnly}
-            onDragStart={() => !correctOrder && !readOnly && onDragStart(index)}
-            onDragEnter={() => !correctOrder && !readOnly && onDragEnter(index)}
-            onDragEnd={() => !correctOrder && !readOnly && onDragEnd()}
+            data-index={index}
+            className={`rank-item${hasImages ? ' rank-item--image' : ''}${correctOrder ? (isCorrectPos ? ' rank-item--correct' : ' rank-item--wrong') : ''}${draggingIndex === index ? ' rank-item--dragging' : ''}`}
+            draggable={interactive}
+            onDragStart={() => interactive && onDragStart(index)}
+            onDragEnter={() => interactive && onDragEnter(index)}
+            onDragEnd={() => interactive && onDragEnd()}
             onDragOver={e => e.preventDefault()}
+            onTouchStart={interactive ? e => onTouchStart(e, index) : undefined}
+            onTouchMove={interactive ? onTouchMove : undefined}
+            onTouchEnd={interactive ? onTouchEnd : undefined}
           >
             <span className="rank-number">{index + 1}</span>
             {opt.image
