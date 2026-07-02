@@ -480,6 +480,7 @@ body {
   flex-shrink: 0;
   height: 36px;
   justify-content: center;
+  margin-left: auto;
 }
 
 .rank-arrow {
