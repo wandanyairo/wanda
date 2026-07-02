@@ -430,7 +430,6 @@ body {
   border: 2px solid #e0ccd4;
   border-radius: 8px;
   padding: 0.6rem 0.75rem;
-  min-height: 44px;
   cursor: default;
   user-select: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -460,6 +459,7 @@ body {
 
 .rank-item--image {
   padding: 0.4rem 0.75rem;
+  min-height: 80px;
 }
 
 .rank-label {
