@@ -1,14 +1,27 @@
-export default function OutroScreen() {
+const REVEAL = new Date('2026-07-10T16:00:00Z')
+const MAX = 18
+
+export default function OutroScreen({ score = null }) {
+  const insightsUnlocked = new Date() >= REVEAL
   return (
     <div className="outro">
       <div className="outro-content">
-        <h1 className="outro-thankyou">Thank you for participating 🌍🍷</h1>
-
-        <ul className="outro-list">
-          <li>Reminder: this was anonymous</li>
-          <li>You can return to this link anytime using your nickname to see your answers</li>
-          <li>Results will be revealed here on July 10 12pm EST and winners will be announced at the soirée and remotely</li>
-        </ul>
+        {insightsUnlocked && score !== null ? (
+          <>
+            <h1 className="outro-thankyou">Thanks again for playing!</h1>
+            <p className="outro-score">You scored <strong>{score}/{MAX}</strong></p>
+            <p className="outro-odds">May the odds be ever in your favour 🏆</p>
+          </>
+        ) : (
+          <>
+            <h1 className="outro-thankyou">Thank you for participating 🌍🍷</h1>
+            <ul className="outro-list">
+              <li>Reminder: this was anonymous</li>
+              <li>You can return to this link anytime using your nickname to see your answers</li>
+              <li>Results will be revealed here on July 10 at 12:00pm EST and winners will be announced at the soirée and remotely</li>
+            </ul>
+          </>
+        )}
 
         <p className="outro-promo">
           To get into the spirit of the season, check out:{' '}

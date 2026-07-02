@@ -18,6 +18,7 @@ export default function App() {
   const [nicknameLoading, setNicknameLoading] = useState(false)
   const [nicknameError, setNicknameError] = useState('')
   const [returningData, setReturningData] = useState(null)
+  const [finalScore, setFinalScore] = useState(null)
 
   const total = QUESTIONS.length
   const question = QUESTIONS[currentIndex]
@@ -102,6 +103,7 @@ export default function App() {
         wishes:         answers['wishes'],
       }])
       if (error) console.error('Supabase insert error:', error)
+      setFinalScore(total)
       setTimeout(() => fireConfetti(), 500)
       setTimeout(() => setScreen('done'), 2500)
     }
@@ -150,7 +152,7 @@ export default function App() {
       />
     )
   }
-  if (screen === 'done') return <OutroScreen />
+  if (screen === 'done') return <OutroScreen score={returningData?.score ?? finalScore} />
 
   return (
     <QuizScreen

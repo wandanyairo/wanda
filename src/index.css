@@ -104,6 +104,18 @@ body {
   line-height: 1.2;
 }
 
+.outro-score {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0.5rem 0 0;
+}
+
+.outro-odds {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0.5rem 0 0;
+}
+
 .outro-list {
   list-style: none;
   display: flex;
@@ -788,6 +800,11 @@ body {
 .quiz-readonly img {
   pointer-events: auto;
   cursor: zoom-in;
+}
+
+.quiz-readonly .rank-modal-overlay,
+.quiz-readonly .rank-modal-close {
+  pointer-events: auto;
 }
 
 .quiz-choice-btn {
