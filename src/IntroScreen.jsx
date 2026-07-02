@@ -8,7 +8,7 @@ export default function IntroScreen({ onStart }) {
       </header>
 
       <ul className="intro-list">
-        <li>This quiz is 100% anonymous—no name, no email, nothing tied to you</li>
+        <li>This quiz is anonymous</li>
         <li>
           You will be asked for your city and whether you're celebrating remotely or in person at the soirée in NYC—this is solely for prize allocation purposes
         </li>
