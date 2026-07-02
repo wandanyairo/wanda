@@ -8,7 +8,7 @@ export const QUESTIONS = [
     id: 'attendance',
     type: 'choice',
     text: 'Will you be celebrating at the soirée in NYC or joining the fun from afar?',
-    options: ['In-person', 'Remote'],
+    options: ['In person', 'Remote'],
   },
   {
     id: 'favourite-fruit',
