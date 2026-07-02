@@ -779,6 +779,11 @@ body {
   user-select: none;
 }
 
+.quiz-readonly textarea {
+  pointer-events: auto;
+  cursor: default;
+}
+
 .quiz-choice-btn {
   display: flex;
   align-items: center;

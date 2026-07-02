@@ -75,7 +75,7 @@ export default function QuizScreen({
         <div className={readOnly ? 'quiz-readonly' : undefined}>
 
           {question.type === 'city' && (
-            <CitySearch value={answer} onChange={onAnswer} />
+            <CitySearch value={answer} onChange={onAnswer} readOnly={readOnly} />
           )}
 
           {question.type === 'text' && (
@@ -99,7 +99,7 @@ export default function QuizScreen({
           )}
 
           {question.type === 'wine-search' && (
-            <WineSearch value={answer} onChange={onAnswer} />
+            <WineSearch value={answer} onChange={onAnswer} readOnly={readOnly} />
           )}
 
           {question.type === 'choice' && (
@@ -145,6 +145,7 @@ export default function QuizScreen({
                 value={answer || []}
                 onChange={onAnswer}
                 correctOrder={correctOrder}
+                readOnly={readOnly}
               />
             )
           })()}

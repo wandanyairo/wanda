@@ -138,7 +138,7 @@ export default function App() {
         question={question}
         answer={returningAnswers[question?.id] ?? ''}
         onAnswer={() => {}}
-        onNext={() => currentIndex < total - 1 ? setCurrentIndex(i => i + 1) : setScreen('welcome')}
+        onNext={() => currentIndex < total - 1 ? setCurrentIndex(i => i + 1) : setScreen('done')}
         onBack={() => currentIndex > 0 ? setCurrentIndex(i => i - 1) : setScreen('welcome')}
         currentIndex={currentIndex}
         total={total}

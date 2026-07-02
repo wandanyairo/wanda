@@ -17,7 +17,7 @@ const WINES = [
   'Zinfandel',
 ]
 
-export default function WineSearch({ value, onChange }) {
+export default function WineSearch({ value, onChange, readOnly = false }) {
   const [wineChoice, setWineChoice] = useState(value?.wine || '')
   const [why, setWhy] = useState(value?.why || '')
   const [suggestions, setSuggestions] = useState([])
@@ -62,7 +62,8 @@ export default function WineSearch({ value, onChange }) {
           onFocus={() => suggestions.length > 0 && setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 150)}
           autoComplete="off"
-          autoFocus
+          autoFocus={!readOnly}
+          readOnly={readOnly}
         />
         {open && (
           <ul className="city-suggestions">
@@ -74,13 +75,14 @@ export default function WineSearch({ value, onChange }) {
           </ul>
         )}
       </div>
-      {wineChoice.trim() && (
+      {(wineChoice.trim() || readOnly) && (
         <textarea
           className="quiz-textarea"
           placeholder="Because..."
           value={why}
           onChange={handleWhyChange}
           rows={3}
+          readOnly={readOnly}
         />
       )}
     </div>

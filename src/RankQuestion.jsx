@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 
-export default function RankQuestion({ options: initialOptions, value, onChange, correctOrder = null }) {
+export default function RankQuestion({ options: initialOptions, value, onChange, correctOrder = null, readOnly = false }) {
   const [items, setItems] = useState(() =>
     value?.length ? value : initialOptions.map(o => o.id)
   )
@@ -53,10 +53,10 @@ export default function RankQuestion({ options: initialOptions, value, onChange,
           <li
             key={id}
             className={`rank-item${hasImages ? ' rank-item--image' : ''}${correctOrder ? (isCorrectPos ? ' rank-item--correct' : ' rank-item--wrong') : ''}`}
-            draggable={!correctOrder}
-            onDragStart={() => !correctOrder && onDragStart(index)}
-            onDragEnter={() => !correctOrder && onDragEnter(index)}
-            onDragEnd={() => !correctOrder && onDragEnd()}
+            draggable={!correctOrder && !readOnly}
+            onDragStart={() => !correctOrder && !readOnly && onDragStart(index)}
+            onDragEnter={() => !correctOrder && !readOnly && onDragEnter(index)}
+            onDragEnd={() => !correctOrder && !readOnly && onDragEnd()}
             onDragOver={e => e.preventDefault()}
           >
             <span className="rank-number">{index + 1}</span>
@@ -72,10 +72,12 @@ export default function RankQuestion({ options: initialOptions, value, onChange,
               )
               : <span className="rank-label">{opt.label}</span>
             }
-            {correctOrder ? (
-              <span className={`rank-feedback ${isCorrectPos ? 'rank-feedback--correct' : 'rank-feedback--wrong'}`}>
-                {isCorrectPos ? '✓' : `✕  #${shouldBe}`}
-              </span>
+            {(correctOrder || readOnly) ? (
+              {correctOrder && (
+                <span className={`rank-feedback ${isCorrectPos ? 'rank-feedback--correct' : 'rank-feedback--wrong'}`}>
+                  {isCorrectPos ? '✓' : `✕  #${shouldBe}`}
+                </span>
+              )}
             ) : (
               <div className="rank-arrows">
                 <button

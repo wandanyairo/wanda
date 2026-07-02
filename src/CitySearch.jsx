@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 
-export default function CitySearch({ value, onChange }) {
+export default function CitySearch({ value, onChange, readOnly = false }) {
   const [query, setQuery] = useState(value || '')
   const [suggestions, setSuggestions] = useState([])
   const [open, setOpen] = useState(false)
@@ -68,9 +68,10 @@ export default function CitySearch({ value, onChange }) {
         placeholder="Start typing your city…"
         value={query}
         onChange={handleInput}
-        onFocus={() => suggestions.length > 0 && setOpen(true)}
-        autoFocus
+        onFocus={() => !readOnly && suggestions.length > 0 && setOpen(true)}
+        autoFocus={!readOnly}
         autoComplete="off"
+        readOnly={readOnly}
       />
       {open && (
         <ul className="city-suggestions">
