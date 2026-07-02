@@ -21,7 +21,7 @@ export default function IntroScreen({ onStart }) {
       </ul>
 
       <div className="intro-footer">
-        <button className="btn-start" onClick={onStart}>Start Quiz</button>
+        <button className="btn-start" onClick={onStart}>Continue →</button>
       </div>
     </div>
   )
