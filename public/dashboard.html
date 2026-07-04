@@ -396,17 +396,17 @@
     <div class="leaderboard-grid">
       <div class="lb-card">
         <div class="lb-card-header">
-          <span class="lb-card-icon">🏠</span>
+          <span class="lb-card-icon">🗽</span>
           <span class="lb-card-title">Top 3 · In Person</span>
-          <span class="chip chip--inperson">🗽</span>
+          <span class="chip chip--inperson">In Person</span>
         </div>
         <div id="lbInPerson"><div class="lb-empty">Loading…</div></div>
       </div>
       <div class="lb-card">
         <div class="lb-card-header">
-          <span class="lb-card-icon">🌐</span>
+          <span class="lb-card-icon">🌍</span>
           <span class="lb-card-title">Top 3 · Remote</span>
-          <span class="chip chip--remote">🌍</span>
+          <span class="chip chip--remote">Remote</span>
         </div>
         <div id="lbRemote"><div class="lb-empty">Loading…</div></div>
       </div>
@@ -597,7 +597,7 @@
       const ip = r.attendance === 'In person';
       return `<tr>
         <td class="cell-nick">${esc(r.nickname || '—')}</td>
-        <td><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${ip ? '🗽' : '🌍'}</span></td>
+        <td><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(r.attendance || '—')}</span></td>
         <td><span class="score-circle">${r.score ?? '—'}</span></td>
         <td>${esc(r.favourite_fruit || '—')}</td>
         <td>${fmtRank(r.rank_glasses, GLASS_LABELS)}</td>
