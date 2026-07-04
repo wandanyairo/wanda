@@ -297,7 +297,7 @@
     }
 
     .cell-nick { font-weight: 600; color: #2e1b22; }
-    .cell-city { color: #956878; font-size: 0.8rem; }
+    .cell-city { color: #956878; font-size: 0.8rem; white-space: nowrap; }
     .cell-muted { color: #c0a0aa; font-size: 0.8rem; }
     .cell-wine { font-weight: 500; color: #2e1b22; }
     .cell-why {
@@ -493,6 +493,12 @@
     heartfelt:   { col: 'submitted_at', dir: 'desc' },
   };
 
+  function fmtCity(raw) {
+    if (!raw) return '—';
+    const city = raw.split(',')[0].trim();
+    return city.charAt(0).toUpperCase() + city.slice(1);
+  }
+
   function esc(str) {
     return String(str ?? '')
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -628,6 +634,7 @@
       const gd = r.grape_debate || {};
       return `<tr>
         <td class="cell-nick">${esc(r.nickname || '—')}</td>
+        <td class="cell-city">${esc(fmtCity(r.city))}</td>
         <td>
           <div class="cell-wine">${esc(ws.wine || '—')}</div>
           ${ws.why ? `<div class="cell-why">"${esc(ws.why)}"</div>` : ''}
@@ -643,6 +650,7 @@
     el.innerHTML = `<table>
       <thead><tr>
         ${thSort('Nickname', 'personality', 'nickname')}
+        ${thSort('City', 'personality', 'city')}
         <th>Wine Self</th>
         <th>Grape Debate</th>
         <th>Scamfluencer</th>
@@ -658,7 +666,7 @@
     if (!data.length) { el.innerHTML = '<div class="no-data">No responses yet</div>'; return; }
     const rows = data.filter(r => r.city || r.advice || r.wishes).map(r => `<tr>
       <td class="cell-nick">${esc(r.nickname || '—')}</td>
-      <td class="cell-city">${esc(r.city || '—')}</td>
+      <td class="cell-city">${esc(fmtCity(r.city))}</td>
       <td class="cell-long">${esc(r.advice || '—')}</td>
       <td class="cell-long">${esc(r.wishes || '—')}</td>
       <td class="cell-time">${fmtTime(r.submitted_at)}</td>
