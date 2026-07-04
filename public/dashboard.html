@@ -656,7 +656,7 @@
     const el = document.getElementById('heartfeltContainer');
     const data = getSorted('heartfelt');
     if (!data.length) { el.innerHTML = '<div class="no-data">No responses yet</div>'; return; }
-    const rows = data.map(r => `<tr>
+    const rows = data.filter(r => r.city || r.advice || r.wishes).map(r => `<tr>
       <td class="cell-nick">${esc(r.nickname || '—')}</td>
       <td class="cell-city">${esc(r.city || '—')}</td>
       <td class="cell-long">${esc(r.advice || '—')}</td>
@@ -697,7 +697,7 @@
       return;
     }
 
-    currentData = data.filter(r => (r.nickname || '').toLowerCase().trim() !== 'test 4');
+    currentData = data.filter(r => !/^test\s*4$/i.test((r.nickname || '').trim()));
 
     const inPerson = currentData.filter(r => r.attendance === 'In person');
     const remote   = currentData.filter(r => r.attendance === 'Remote');
