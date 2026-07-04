@@ -158,6 +158,9 @@
       font-weight: 700;
       color: #2e1b22;
       flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
     .chip {
@@ -294,7 +297,7 @@
       font-variant-numeric: tabular-nums;
     }
 
-    .cell-nick { font-weight: 600; color: #2e1b22; white-space: nowrap; max-width: 140px; overflow: hidden; text-overflow: ellipsis; }
+    .cell-nick { font-weight: 600; color: #2e1b22; }
     .cell-city { color: #956878; font-size: 0.8rem; white-space: nowrap; }
     .cell-muted { color: #c0a0aa; font-size: 0.8rem; }
     .cell-wine { font-weight: 500; color: #2e1b22; }
@@ -397,16 +400,14 @@
       <div class="lb-card">
         <div class="lb-card-header">
           <span class="lb-card-icon">🗽</span>
-          <span class="lb-card-title">Top 3 · In Person</span>
-          <span class="chip chip--inperson">In Person</span>
+          <span class="lb-card-title">Top 3 · <span class="chip chip--inperson">In Person</span></span>
         </div>
         <div id="lbInPerson"><div class="lb-empty">Loading…</div></div>
       </div>
       <div class="lb-card">
         <div class="lb-card-header">
           <span class="lb-card-icon">🌍</span>
-          <span class="lb-card-title">Top 3 · Remote</span>
-          <span class="chip chip--remote">Remote</span>
+          <span class="lb-card-title">Top 3 · <span class="chip chip--remote">Remote</span></span>
         </div>
         <div id="lbRemote"><div class="lb-empty">Loading…</div></div>
       </div>
