@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WWWT 2026 · Quiz Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #FBF2F5;
+      color: #2e1b22;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: linear-gradient(160deg, #d95c88 0%, #f0a356 100%);
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .header-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 0.3rem;
+    }
+
+    .header-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .header-pill {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.22);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.2em 0.7em;
+      position: relative;
+      top: -1px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      flex-shrink: 0;
+      transition: background 0.4s;
+      animation: livePulse 2.4s ease-in-out infinite;
+    }
+    .live-dot--active { background: #fff; }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.25); }
+    }
+
+    .main {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 1.75rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #956878;
+      margin-bottom: 0.8rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.875rem;
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1.5px solid #e0ccd4;
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem 1rem;
+    }
+
+    .stat-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #956878;
+      margin-bottom: 0.45rem;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #d95c88;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .leaderboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .lb-card {
+      background: #fff;
+      border: 1.5px solid #e0ccd4;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .lb-card-header {
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid #f0e4ea;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lb-card-icon { font-size: 1rem; flex-shrink: 0; }
+
+    .lb-card-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #2e1b22;
+      flex: 1;
+    }
+
+    .chip {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border-radius: 999px;
+      padding: 0.22em 0.65em;
+    }
+    .chip--inperson { background: #fde8d4; color: #b05818; }
+    .chip--remote   { background: #e3edfb; color: #3664b8; }
+
+    .lb-entry {
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      border-bottom: 1px solid #fdf0f4;
+    }
+    .lb-entry:last-child { border-bottom: none; }
+
+    .lb-medal {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      width: 1.9rem;
+      text-align: center;
+    }
+
+    .lb-info { flex: 1; min-width: 0; }
+
+    .lb-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #2e1b22;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lb-pips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-top: 0.3rem;
+    }
+
+    .pip {
+      font-size: 0.58rem;
+      font-weight: 700;
+      background: #fde8ec;
+      color: #c24e78;
+      border-radius: 4px;
+      padding: 0.12em 0.42em;
+    }
+
+    .lb-score {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #d95c88;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lb-empty {
+      padding: 2.25rem;
+      text-align: center;
+      color: #c0a0aa;
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    .table-card {
+      background: #fff;
+      border: 1.5px solid #e0ccd4;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .table-scroll { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    thead th {
+      text-align: left;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #956878;
+      padding: 0.7rem 1.25rem;
+      background: #fdf8fa;
+      border-bottom: 1px solid #f0e4ea;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 0.8rem 1.25rem;
+      border-bottom: 1px solid #fdf0f4;
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: #fdf8fa; }
+
+    .score-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d95c88, #f0a356);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cell-nick { font-weight: 600; color: #2e1b22; }
+    .cell-city { color: #956878; font-size: 0.8rem; }
+    .cell-wine { font-weight: 500; color: #2e1b22; }
+    .cell-why {
+      font-size: 0.74rem;
+      color: #956878;
+      font-style: italic;
+      margin-top: 0.2rem;
+      max-width: 220px;
+      line-height: 1.45;
+    }
+    .cell-time {
+      font-size: 0.76rem;
+      color: #b89aa4;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 3rem;
+      color: #c0a0aa;
+      font-style: italic;
+    }
+
+    @media (max-width: 720px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .leaderboard-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .header { padding: 1.25rem; }
+      .main { padding: 1.25rem 1rem 3rem; }
+      .header-title { font-size: 1.2rem; }
+      .stat-value { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <div class="header-eyebrow">Wanda's Worldwide Wine Tours™</div>
+    <div class="header-title">
+      Quiz Results 🍷
+      <span class="header-pill">WWWT · 2026</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="live-dot" id="liveDot"></span>
+    <span id="lastUpdated">Loading…</span>
+  </div>
+</header>
+
+<main class="main">
+
+  <section>
+    <div class="section-label">Overview</div>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Responses</div>
+        <div class="stat-value" id="statTotal">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Score</div>
+        <div class="stat-value" id="statAvg">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Top Score</div>
+        <div class="stat-value" id="statTop">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">In Person / Remote</div>
+        <div class="stat-value" id="statSplit">—</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Leaderboard — ties broken by earliest submission</div>
+    <div class="leaderboard-grid">
+      <div class="lb-card">
+        <div class="lb-card-header">
+          <span class="lb-card-icon">🏠</span>
+          <span class="lb-card-title">Top 3 · In Person</span>
+          <span class="chip chip--inperson">In Person</span>
+        </div>
+        <div id="lbInPerson"><div class="lb-empty">Loading…</div></div>
+      </div>
+      <div class="lb-card">
+        <div class="lb-card-header">
+          <span class="lb-card-icon">🌐</span>
+          <span class="lb-card-title">Top 3 · Remote</span>
+          <span class="chip chip--remote">Remote</span>
+        </div>
+        <div id="lbRemote"><div class="lb-empty">Loading…</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">All Responses</div>
+    <div class="table-card">
+      <div class="table-scroll" id="tableContainer">
+        <div class="no-data">Loading…</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const { createClient } = supabase;
+  const db = createClient(
+    'https://rtfjpbptykmyrprxbkor.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0ZmpwYnB0eWtteXJwcnhia29yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3Nzg4NzIsImV4cCI6MjA5ODM1NDg3Mn0.l17KUmut5xJMWWHapRd_sHfSg6KMyUDO8iQGT5Zg-tc'
+  );
+
+  const MEDALS = ['🥇', '🥈', '🥉'];
+  const BD_LABELS = {
+    'veggie': 'Veggie',
+    'rank-wines': 'Wines',
+    'rank-cheeses': 'Cheeses',
+    'rank-glasses': 'Glasses',
+    'favourite-fruit': 'Fruit'
+  };
+
+  function esc(str) {
+    return String(str ?? '')
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function fmtTime(iso) {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+         + ' · '
+         + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  }
+
+  function renderLeaderboard(entries, id) {
+    const el = document.getElementById(id);
+    const top = entries.slice(0, 3);
+    if (!top.length) { el.innerHTML = '<div class="lb-empty">No entries yet</div>'; return; }
+    el.innerHTML = top.map((e, i) => {
+      const bd = e.score_breakdown || {};
+      const pips = Object.entries(bd)
+        .filter(([,v]) => v > 0)
+        .map(([k,v]) => `<span class="pip">${BD_LABELS[k]||k} +${v}</span>`)
+        .join('');
+      return `<div class="lb-entry">
+        <div class="lb-medal">${MEDALS[i]}</div>
+        <div class="lb-info">
+          <div class="lb-name">${esc(e.nickname || 'Anonymous')}</div>
+          <div class="lb-pips">${pips}</div>
+        </div>
+        <div class="lb-score">${e.score ?? '—'}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderStats(data) {
+    const n = data.length;
+    const scores = data.map(r => r.score ?? 0);
+    const avg = n ? (scores.reduce((a,b) => a+b, 0) / n).toFixed(1) : '—';
+    const top = n ? Math.max(...scores) : '—';
+    const ip = data.filter(r => r.attendance === 'In person').length;
+    const rm = data.filter(r => r.attendance === 'Remote').length;
+    document.getElementById('statTotal').textContent = n;
+    document.getElementById('statAvg').textContent = avg;
+    document.getElementById('statTop').textContent = top;
+    document.getElementById('statSplit').textContent = `${ip} / ${rm}`;
+  }
+
+  function renderTable(data) {
+    const el = document.getElementById('tableContainer');
+    if (!data.length) { el.innerHTML = '<div class="no-data">No responses yet</div>'; return; }
+    const rows = data.map(r => {
+      const ip = r.attendance === 'In person';
+      const ws = r.wine_self || {};
+      return `<tr>
+        <td class="cell-nick">${esc(r.nickname || '—')}</td>
+        <td><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(r.attendance || '—')}</span></td>
+        <td><span class="score-circle">${r.score ?? '—'}</span></td>
+        <td class="cell-city">${esc(r.city || '—')}</td>
+        <td>
+          <div class="cell-wine">${esc(ws.wine || '—')}</div>
+          ${ws.why ? `<div class="cell-why">"${esc(ws.why)}"</div>` : ''}
+        </td>
+        <td class="cell-time">${fmtTime(r.submitted_at)}</td>
+      </tr>`;
+    }).join('');
+    el.innerHTML = `<table>
+      <thead><tr>
+        <th>Nickname</th><th>Attendance</th><th>Score</th>
+        <th>City</th><th>Wine Self</th><th>Submitted</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }
+
+  async function refresh() {
+    const dot = document.getElementById('liveDot');
+    dot.classList.add('live-dot--active');
+
+    const { data, error } = await db
+      .from('submissions')
+      .select('*')
+      .order('score', { ascending: false })
+      .order('submitted_at', { ascending: true });
+
+    if (error) {
+      document.getElementById('lastUpdated').textContent = 'Error — retrying…';
+      dot.classList.remove('live-dot--active');
+      return;
+    }
+
+    const inPerson = data.filter(r => r.attendance === 'In person');
+    const remote   = data.filter(r => r.attendance === 'Remote');
+
+    renderStats(data);
+    renderLeaderboard(inPerson, 'lbInPerson');
+    renderLeaderboard(remote,   'lbRemote');
+    renderTable(data);
+
+    document.getElementById('lastUpdated').textContent =
+      'Updated ' + new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    setTimeout(() => dot.classList.remove('live-dot--active'), 800);
+  }
+
+  refresh();
+  setInterval(refresh, 30000);
+</script>
+</body>
+</html>
