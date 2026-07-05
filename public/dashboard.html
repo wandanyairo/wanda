@@ -875,7 +875,7 @@
       return `<tr>
         <td class="cell-nick">
           ${esc(r.nickname || '—')}
-          <div style="margin-top:4px"><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(attendanceLabel)}</span></div>
+          <div style="margin-top:8px"><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(attendanceLabel)}</span></div>
         </td>
         <td><span class="score-circle">${r.score ?? '—'}</span></td>
         <td>${esc(r.favourite_fruit || '—')}</td>
