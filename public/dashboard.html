@@ -949,10 +949,10 @@
     const data = getSorted('heartfelt');
     if (!data.length) { el.innerHTML = '<div class="no-data">No responses yet</div>'; return; }
     const rows = data.filter(r => r.city || r.advice || r.wishes).map(r => `<tr>
-      <td class="cell-nick" style="max-width:160px;white-space:normal;word-break:break-word">${esc(r.nickname || '—')}</td>
+      <td class="cell-nick" style="white-space:normal;word-break:break-word">${esc(r.nickname || '—')}</td>
       <td class="cell-city">${esc(fmtCity(r.city))}</td>
       <td class="cell-long">${esc(r.advice || '—')}</td>
-      <td class="cell-long">${esc(r.wishes || '—')}</td>
+      <td class="cell-long" style="max-width:400px">${esc(r.wishes || '—')}</td>
       <td class="cell-time">${fmtTime(r.submitted_at)}</td>
     </tr>`).join('');
     el.innerHTML = `<table>
