@@ -277,10 +277,14 @@
     }
 
     .chip {
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       border-radius: 999px;
+      padding: 0.28em 0.8em;
+    }
+    .chip--sm {
+      font-size: 0.62rem;
       padding: 0.22em 0.65em;
     }
     .chip--inperson { background: #fde8d4; color: #b05818; }
@@ -879,7 +883,7 @@
       return `<tr>
         <td class="cell-nick">
           ${esc(r.nickname || '—')}
-          <div style="margin-top:8px"><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(attendanceLabel)}</span></div>
+          <div style="margin-top:8px"><span class="chip chip--sm ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(attendanceLabel)}</span></div>
         </td>
         <td><span class="score-circle">${r.score ?? '—'}</span></td>
         <td>${esc(r.favourite_fruit || '—')}</td>
