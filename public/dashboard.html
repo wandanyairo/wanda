@@ -120,6 +120,7 @@
       text-transform: uppercase;
       color: #956878;
       margin-bottom: 0.45rem;
+      line-height: 1.4;
     }
 
     .stat-value {
@@ -130,6 +131,88 @@
       font-variant-numeric: tabular-nums;
     }
 
+    .stat-sub {
+      font-size: 0.65rem;
+      color: #b89aa4;
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    /* Answer key card */
+    .answers-card {
+      background: #fff;
+      border: 1.5px solid #e0ccd4;
+      border-radius: 14px;
+      padding: 0.25rem 0;
+    }
+
+    .answer-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid #fdf0f4;
+    }
+    .answer-row:last-child { border-bottom: none; }
+
+    .answer-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      width: 1.4rem;
+      text-align: center;
+      padding-top: 0.05rem;
+    }
+
+    .answer-key-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #956878;
+      width: 120px;
+      flex-shrink: 0;
+      padding-top: 0.1rem;
+    }
+
+    .answer-val {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #2e1b22;
+    }
+
+    .answer-seq {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.5rem;
+      flex: 1;
+    }
+
+    .answer-seq-item {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #2e1b22;
+      white-space: nowrap;
+    }
+
+    .answer-seq-num {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: #d95c88;
+      background: #fde8ec;
+      border-radius: 999px;
+      padding: 0.1em 0.45em;
+    }
+
+    .answer-tbd {
+      font-size: 0.82rem;
+      color: #c0a0aa;
+      font-style: italic;
+    }
+
+    /* Leaderboard */
     .leaderboard-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -405,7 +488,30 @@
         <div class="stat-label">In Person / Remote</div>
         <div class="stat-value" id="statSplit">—</div>
       </div>
+      <div class="stat-card">
+        <div class="stat-label">Grape Debate</div>
+        <div class="stat-value" id="statGrape">—</div>
+        <div class="stat-sub" id="statGrapeSub"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Cities</div>
+        <div class="stat-value" id="statCities">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Countries</div>
+        <div class="stat-value" id="statCountries">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Wine Identities</div>
+        <div class="stat-value" id="statWines">—</div>
+        <div class="stat-sub" id="statWinesSub"></div>
+      </div>
     </div>
+  </section>
+
+  <section>
+    <div class="section-label">Answer Key — Wanda's actual answers</div>
+    <div class="answers-card" id="answersCard"></div>
   </section>
 
   <section>
@@ -498,6 +604,15 @@
     'favourite-fruit': 'Fruit'
   };
 
+  // Wanda's correct answers — update rank arrays once confirmed
+  const CORRECT_ANSWERS = {
+    favourite_fruit: 'Apple',
+    veggie: 'Olives',
+    rank_wines: null,   // e.g. ['rose', 'riesling', 'pinot-grigio', 'chilled-malbec', 'pinot-noir']
+    rank_cheeses: null, // e.g. ['feta', 'parmesan', 'brie', 'gruyere', 'cheddar']
+    rank_glasses: null, // e.g. ['angular-stem', 'rounded-stem', 'stemless', 'short-thick-stem', 'wine-cooler-mug', 'mug']
+  };
+
   let currentData = [];
 
   const sortState = {
@@ -508,8 +623,39 @@
 
   function fmtCity(raw) {
     if (!raw) return '—';
+    raw = raw.trim();
+    if (/^california$/i.test(raw)) return 'San Francisco';
     const city = raw.split(',')[0].trim();
     return city.charAt(0).toUpperCase() + city.slice(1);
+  }
+
+  function normalizeCity(raw) {
+    if (!raw) return null;
+    raw = raw.trim();
+    if (/^california$/i.test(raw)) return 'San Francisco';
+    const city = raw.split(',')[0].trim().toLowerCase();
+    return city.charAt(0).toUpperCase() + city.slice(1);
+  }
+
+  function inferCountry(raw) {
+    if (!raw) return null;
+    const c = raw.toLowerCase();
+    if (c.includes('kenya') || c.includes('nairobi')) return 'Kenya';
+    if (c.includes('nigeria') || c.includes('lagos')) return 'Nigeria';
+    if (c.includes('qatar') || c.includes('doha')) return 'Qatar';
+    if (c.includes('canada') || c.includes('toronto')) return 'Canada';
+    return 'USA';
+  }
+
+  function fmtAttendance(raw) {
+    if (!raw) return '—';
+    if (/^in\s*person$/i.test(raw.trim())) return 'In Person';
+    if (/^remote$/i.test(raw.trim())) return 'Remote';
+    return raw;
+  }
+
+  function isInPerson(raw) {
+    return /^in\s*person$/i.test((raw || '').trim());
   }
 
   function esc(str) {
@@ -571,6 +717,47 @@
     ).join('');
   }
 
+  function renderAnswersCard() {
+    const el = document.getElementById('answersCard');
+    if (!el) return;
+    const c = CORRECT_ANSWERS;
+
+    function seqHtml(arr, labels) {
+      if (!arr) return '<span class="answer-tbd">To be added</span>';
+      return `<div class="answer-seq">${arr.map((k, i) =>
+        `<span class="answer-seq-item"><span class="answer-seq-num">${i + 1}</span>${esc(labels[k] || k)}</span>`
+      ).join('')}</div>`;
+    }
+
+    el.innerHTML = `
+      <div class="answer-row">
+        <span class="answer-icon">🍎</span>
+        <span class="answer-key-label">Fave Fruit</span>
+        <span class="answer-val">${esc(c.favourite_fruit || '—')}</span>
+      </div>
+      <div class="answer-row">
+        <span class="answer-icon">�ac </span>
+        <span class="answer-key-label">Fave Veggie</span>
+        <span class="answer-val">${esc(c.veggie || '—')}</span>
+      </div>
+      <div class="answer-row">
+        <span class="answer-icon">🍷</span>
+        <span class="answer-key-label">Wine Ranking</span>
+        ${seqHtml(c.rank_wines, WINE_LABELS)}
+      </div>
+      <div class="answer-row">
+        <span class="answer-icon">🧀</span>
+        <span class="answer-key-label">Cheese Ranking</span>
+        ${seqHtml(c.rank_cheeses, CHEESE_LABELS)}
+      </div>
+      <div class="answer-row">
+        <span class="answer-icon">🥂</span>
+        <span class="answer-key-label">Glass Ranking</span>
+        ${seqHtml(c.rank_glasses, GLASS_LABELS)}
+      </div>
+    `;
+  }
+
   function renderLeaderboard(entries, id) {
     const el = document.getElementById(id);
     const top = entries.slice(0, 3);
@@ -597,12 +784,48 @@
     const scores = data.map(r => r.score ?? 0);
     const avg = n ? (scores.reduce((a,b) => a+b, 0) / n).toFixed(1) : '—';
     const top = n ? Math.max(...scores) : '—';
-    const ip = data.filter(r => r.attendance === 'In person').length;
-    const rm = data.filter(r => r.attendance === 'Remote').length;
+    const ip = data.filter(r => isInPerson(r.attendance)).length;
+    const rm = data.filter(r => /^remote$/i.test((r.attendance || '').trim())).length;
+
+    // Grape debate
+    const red   = data.filter(r => (r.grape_debate || {}).choice === 'Red').length;
+    const green = data.filter(r => (r.grape_debate || {}).choice === 'Green').length;
+    const grapeWinner = red > green ? 'Red leads' : green > red ? 'Green leads' : 'Tied';
+
+    // Cities & countries
+    const cityNames = data.map(r => normalizeCity(r.city)).filter(Boolean);
+    const uniqueCities = new Set(cityNames).size;
+    const countries = new Set(data.map(r => inferCountry(r.city)).filter(Boolean));
+    const uniqueCountries = countries.size;
+
+    // Wine self-identification (exclude non-answers)
+    const wines = data
+      .map(r => (r.wine_self || {}).wine)
+      .filter(w => w && !/idk|don't know|sparkling water/i.test(w));
+    const uniqueWines = new Set(wines.map(w => w.toLowerCase())).size;
+    const wineFreq = {};
+    wines.forEach(w => { const k = w.toLowerCase(); wineFreq[k] = (wineFreq[k] || 0) + 1; });
+    const maxFreq = Math.max(...Object.values(wineFreq), 0);
+    const topWines = Object.entries(wineFreq)
+      .filter(([,v]) => v === maxFreq)
+      .map(([k]) => wines.find(w => w.toLowerCase() === k) || k);
+
     document.getElementById('statTotal').textContent = n;
     document.getElementById('statAvg').textContent = avg;
     document.getElementById('statTop').textContent = top;
     document.getElementById('statSplit').textContent = `${ip} / ${rm}`;
+    document.getElementById('statGrape').textContent = `${red} · ${green}`;
+    document.getElementById('statGrapeSub').textContent = `Red · Green · ${grapeWinner}`;
+    document.getElementById('statCities').textContent = uniqueCities;
+    document.getElementById('statCountries').textContent = uniqueCountries;
+    document.getElementById('statWines').textContent = uniqueWines;
+
+    const wineSubEl = document.getElementById('statWinesSub');
+    if (topWines.length > 1) {
+      wineSubEl.textContent = `${maxFreq}-way tie: ${topWines.join(', ')}`;
+    } else if (topWines.length === 1) {
+      wineSubEl.textContent = `Most common: ${topWines[0]}`;
+    }
   }
 
   function renderScoreboard() {
@@ -610,10 +833,11 @@
     const data = getSorted('scoreboard');
     if (!data.length) { el.innerHTML = '<div class="no-data">No responses yet</div>'; return; }
     const rows = data.map(r => {
-      const ip = r.attendance === 'In person';
+      const ip = isInPerson(r.attendance);
+      const attendanceLabel = fmtAttendance(r.attendance);
       return `<tr>
         <td class="cell-nick">${esc(r.nickname || '—')}</td>
-        <td><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(r.attendance || '—')}</span></td>
+        <td><span class="chip ${ip ? 'chip--inperson' : 'chip--remote'}">${esc(attendanceLabel)}</span></td>
         <td><span class="score-circle">${r.score ?? '—'}</span></td>
         <td>${esc(r.favourite_fruit || '—')}</td>
         <td>${fmtRank(r.rank_glasses, GLASS_LABELS)}</td>
@@ -717,8 +941,8 @@
 
     currentData = data.filter(r => !/^test\s*4$/i.test((r.nickname || '').trim()));
 
-    const inPerson = currentData.filter(r => r.attendance === 'In person');
-    const remote   = currentData.filter(r => r.attendance === 'Remote');
+    const inPerson = currentData.filter(r => isInPerson(r.attendance));
+    const remote   = currentData.filter(r => /^remote$/i.test((r.attendance || '').trim()));
 
     renderStats(currentData);
     renderLeaderboard(inPerson, 'lbInPerson');
@@ -731,6 +955,7 @@
       + ' · ' + now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }).replace(' AM', 'AM').replace(' PM', 'PM');
   }
 
+  renderAnswersCard();
   refresh();
   setInterval(refresh, 30000);
 </script>
