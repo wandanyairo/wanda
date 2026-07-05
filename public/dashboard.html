@@ -221,7 +221,7 @@
       right: 1rem;
       background: #fff;
       border: none;
-      border-radius: 50%;
+      border-radius: 50%;  
       width: 2.2rem;
       height: 2.2rem;
       font-size: 1rem;
@@ -949,7 +949,7 @@
     const data = getSorted('heartfelt');
     if (!data.length) { el.innerHTML = '<div class="no-data">No responses yet</div>'; return; }
     const rows = data.filter(r => r.city || r.advice || r.wishes).map(r => `<tr>
-      <td class="cell-nick" style="max-width:110px;white-space:normal;word-break:break-word">${esc(r.nickname || '—')}</td>
+      <td class="cell-nick" style="max-width:160px;white-space:normal;word-break:break-word">${esc(r.nickname || '—')}</td>
       <td class="cell-city">${esc(fmtCity(r.city))}</td>
       <td class="cell-long">${esc(r.advice || '—')}</td>
       <td class="cell-long">${esc(r.wishes || '—')}</td>
