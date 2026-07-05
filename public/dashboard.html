@@ -793,9 +793,10 @@
     if (!top.length) { el.innerHTML = '<div class="lb-empty">No entries yet</div>'; return; }
     el.innerHTML = top.map((e, i) => {
       const bd = e.score_breakdown || {};
-      const pips = Object.entries(bd)
-        .filter(([,v]) => v > 0)
-        .map(([k,v]) => `<span class="pip">${BD_LABELS[k]||k} +${v}</span>`)
+      const PIP_ORDER = ['favourite-fruit','rank-glasses','rank-wines','rank-cheeses','veggie'];
+      const pips = PIP_ORDER
+        .filter(k => (bd[k] || 0) > 0)
+        .map(k => `<span class="pip">${BD_LABELS[k]||k} +${bd[k]}</span>`)
         .join('');
       return `<div class="lb-entry">
         <div class="lb-medal">${MEDALS[i]}</div>
